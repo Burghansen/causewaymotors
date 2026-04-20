@@ -22,14 +22,6 @@ const columns: { heading: string; links: { label: string; href: string }[] }[] =
       { label: "Fleet services", href: "/services#fleet" },
     ],
   },
-  {
-    heading: "Legal",
-    links: [
-      { label: "Privacy policy", href: "/privacy" },
-      { label: "Terms of service", href: "/terms" },
-      { label: "Workmanship guarantee", href: "/guarantee" },
-    ],
-  },
 ];
 
 export default function Footer() {
@@ -98,7 +90,7 @@ export default function Footer() {
 
         <nav
           aria-label="Footer"
-          className="grid grid-cols-2 gap-8 sm:grid-cols-3 lg:col-span-7"
+          className="grid grid-cols-2 gap-8 lg:col-span-7"
         >
           {columns.map((col) => (
             <div key={col.heading}>

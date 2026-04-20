@@ -1,7 +1,9 @@
 node_modules
 .next
 out
+_next
 .env*.local
 .DS_Store
 *.log
 next-env.d.ts
+.vscode
