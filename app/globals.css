@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --brand-orange: #FF6B00;
+  --brand-orange-soft: #FF8124;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background-color: #000000;
+  color: #FFFFFF;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background-color: rgba(255, 107, 0, 0.35);
+  color: #FFFFFF;
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1;
+}
+
+@layer utilities {
+  .glass {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: saturate(140%) blur(16px);
+    -webkit-backdrop-filter: saturate(140%) blur(16px);
+    border-bottom: 1px solid rgba(255, 107, 0, 0.18);
+  }
+
+  .text-balance { text-wrap: balance; }
+  .text-pretty { text-wrap: pretty; }
+
+  .hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 45%, rgba(0,0,0,0.85) 78%, #000000 100%);
+  }
+  .hero-ambient {
+    background: radial-gradient(62% 55% at 18% 45%, rgba(255,107,0,0.18), transparent 65%);
+  }
+
+  .text-glow { text-shadow: 0 0 22px rgba(255, 107, 0, 0.45); }
+  .link-glow { text-shadow: 0 0 14px rgba(255, 107, 0, 0.55); }
+
+  /* Hollow / outlined mega headline — reference "900 FIVE STAR REVIEWS" treatment */
+  .text-stroke {
+    -webkit-text-stroke: 1.5px rgba(255, 107, 0, 0.75);
+    color: transparent;
+  }
+  .text-stroke-white {
+    -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.4);
+    color: transparent;
+  }
+
+  /* Grain overlay over pure black */
+  .grain-overlay {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/></svg>");
+    opacity: 0.045;
+    mix-blend-mode: overlay;
+  }
+
+  .divider-orange {
+    background: linear-gradient(90deg, transparent, rgba(255,107,0,0.55), transparent);
+  }
+
+  /* Spotlight border that follows cursor */
+  .spotlight::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: radial-gradient(
+      220px circle at var(--mx, 50%) var(--my, 50%),
+      rgba(255, 107, 0, 0.55),
+      rgba(255, 107, 0, 0) 60%
+    );
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 300ms ease;
+    pointer-events: none;
+  }
+  .spotlight:hover::before { opacity: 1; }
+
+  /* Dashed connector line between numbered steps */
+  .step-dashed {
+    background-image: linear-gradient(to right, rgba(255,107,0,0.6) 50%, transparent 0%);
+    background-size: 14px 2px;
+    background-repeat: repeat-x;
+    background-position: center;
+  }
+}
