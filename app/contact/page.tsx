@@ -69,6 +69,7 @@ export default function ContactPage() {
                 src={mapsEmbed}
                 title="Causeway Motors on Google Maps"
                 loading="lazy"
+                sandbox="allow-scripts allow-same-origin"
                 className="absolute inset-0 h-full w-full [filter:grayscale(1)_invert(0.92)_hue-rotate(180deg)_contrast(0.9)_saturate(1.15)]"
                 referrerPolicy="no-referrer-when-downgrade"
               />

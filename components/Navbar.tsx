@@ -11,8 +11,7 @@ import { site } from "@/lib/site";
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
-  const [activeHref, setActiveHref] = useState<string>("/");
-  const pathname = usePathname();
+  const pathname = usePathname() ?? "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -21,12 +20,8 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setActiveHref(pathname ?? "/");
-  }, [pathname]);
-
   const isActive = (href: string) =>
-    href === "/" ? activeHref === "/" : activeHref.startsWith(href);
+    href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
     <header

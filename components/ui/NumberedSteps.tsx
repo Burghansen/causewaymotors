@@ -14,7 +14,7 @@ type Props = {
 export default function NumberedSteps({ steps }: Props) {
   return (
     <ol className="relative grid grid-cols-1 gap-12 sm:grid-cols-3 sm:gap-8">
-      <div
+      <li
         className="step-dashed pointer-events-none absolute left-[10%] right-[10%] top-8 hidden h-0.5 sm:block"
         aria-hidden="true"
       />

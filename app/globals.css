@@ -16,7 +16,6 @@ html,
 body {
   background-color: #000000;
   color: #FFFFFF;
-  -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 

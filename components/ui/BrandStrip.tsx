@@ -34,6 +34,7 @@ export default function BrandStrip() {
                     src={brandLogos[brand]}
                     alt={`${brand} logo`}
                     fill
+                    sizes="48px"
                     className="object-contain"
                   />
                 </div>

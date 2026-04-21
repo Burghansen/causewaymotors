@@ -10,14 +10,25 @@ export default function ContactForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus("submitting");
-    // Simulated submission — replace with real endpoint
-    await new Promise((r) => setTimeout(r, 700));
     const form = e.currentTarget;
-    const ok = (form.elements.namedItem("email") as HTMLInputElement)?.value
-      ?.includes("@");
-    setStatus(ok ? "success" : "error");
-    if (ok) form.reset();
+    const email = (form.elements.namedItem("email") as HTMLInputElement)?.value ?? "";
+    const name = (form.elements.namedItem("name") as HTMLInputElement)?.value ?? "";
+
+    if (!name.trim()) {
+      setStatus("error");
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setStatus("error");
+      return;
+    }
+
+    setStatus("submitting");
+    // TODO: Replace with real form endpoint (e.g. Formspree, Netlify Forms, or API route)
+    await new Promise((r) => setTimeout(r, 700));
+    setStatus("success");
+    form.reset();
   }
 
   const inputBase =
@@ -115,7 +126,7 @@ export default function ContactForm() {
         )}
         {status === "error" && (
           <p className="text-sm text-red-400">
-            Please enter a valid email address.
+            Please fill in your name and a valid email address.
           </p>
         )}
       </div>

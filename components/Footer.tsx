@@ -73,10 +73,10 @@ export default function Footer() {
             <li className="flex items-start gap-3">
               <Mail className="mt-0.5 h-4 w-4 flex-none text-brand-orange" />
               <a
-                href="mailto:service@causewaymotors.co.nz"
+                href={`mailto:${site.email}`}
                 className="transition hover:text-brand-orange"
               >
-                service@causewaymotors.co.nz
+                {site.email}
               </a>
             </li>
             <li className="flex items-start gap-3">
